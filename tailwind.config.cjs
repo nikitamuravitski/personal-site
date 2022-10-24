@@ -7,5 +7,6 @@ module.exports = {
       '200%': '200%',
     }
   },
+  
   plugins: [],
 };

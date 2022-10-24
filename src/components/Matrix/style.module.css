@@ -1,0 +1,19 @@
+.container {
+  @apply flex-1 origin-center flex flex-col gap-1 p-1 h-screen overflow-y-hidden z-0 scale-110 rotate-3;
+}
+
+.row {
+  @apply flex justify-around gap-1;
+}
+
+.tile {
+  @apply rounded-sm flex-1 aspect-square transition-all duration-300 bg-slate-300;
+  /* background-color: #a5a58d; */
+}
+.tile:hover {
+  background-color: #f3d8c7;
+}
+
+/* .row:hover .tile[style~="opacity: 0"] {
+  background-color: 'red' !important;
+} */

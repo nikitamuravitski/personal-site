@@ -12,8 +12,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <HomeSection contentPosition="left" />
-        <HomeSection contentPosition="right"/>
+        <HomeSection />
       </main>
     </>
   )
