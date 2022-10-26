@@ -75,7 +75,7 @@ const HomeMainSection = () => {
     <div className='absolute -m-10 w-screen'>
       <Matrix />
     </div>
-    <div className={` ${tabStack.length ? 'w-1/2' : 'w-0'} justify-center h-fit max-h-full flex flex-col duration-700 transition-all overflow-y-auto z-10`}>
+    <div className={` ${tabStack.length ? 'w-1/2' : 'w-0'} justify-center h-fit max-h-full flex flex-col duration-700 transition-all z-10`}>
       {tabStack.map(item => <Window name={item} removeFromStack={removeFromStack} key={item}>
         {content[item]}
       </Window>)}

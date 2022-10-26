@@ -1,0 +1,30 @@
+.wrapper {
+  position: relative
+}
+
+.wrapper::before {
+  @apply bg-slate-200;
+  content: '';
+  width: 12px;
+  position: absolute;
+  left: -30px;
+  top: 0;
+  bottom: 0;
+}
+
+.bullet {
+  @apply p-1;
+  position: relative;
+}
+
+.bullet::before {
+  @apply p-1 bg-slate-400 rounded-sm;
+  content: ' ';
+  position: absolute;
+  left: -10px;
+  width: 8px;
+  top: calc(50% - 4px);
+  bottom: calc(50% - 4px);
+  height: 8px;
+
+}

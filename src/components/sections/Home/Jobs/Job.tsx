@@ -1,5 +1,6 @@
 import React from 'react'
 import { Job } from './Jobs'
+import styles from './style.module.css'
 
 type JobProps = {
   data: Job
@@ -8,7 +9,7 @@ type JobProps = {
 const Job = ({ data }: JobProps) => {
   const { icon, name, bullets, review, technologies, link, time } = data
   return (
-    <>
+    <div className={styles['wrapper']}>
       <div className='flex'>
         {icon}
         <div className='ml-3 flex flex-col justify-start'>
@@ -18,7 +19,7 @@ const Job = ({ data }: JobProps) => {
           {link &&
             <p>
               <a
-                className="text-blue-600 underline underline-offset-1 visited:text-purple-600"
+                className="text-blue-600  underline underline-offset-1 visited:text-purple-600"
                 href={link.value}
               >
                 {link.slug}
@@ -31,10 +32,10 @@ const Job = ({ data }: JobProps) => {
         {technologies.map(tech => <span key={tech} className='rounded-full px-3 py-1 bg-slate-200'>{tech}</span>)}
       </div>
       <h4 className='text-xl'>What I worked on: </h4>
-      <ul className='list-disc text-lg text-slate-700 pl-4'>
-        {bullets.map(bullet => <li key={bullet}>{bullet}</li>)}
+      <ul className='text-lg text-slate-700 pl-4'>
+        {bullets.map(bullet => <li className={styles['bullet']} key={bullet}>{bullet}</li>)}
       </ul>
-    </>
+    </div>
   )
 }
 
