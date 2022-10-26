@@ -1,3 +1,14 @@
 .container {
-  @apply duration-500 transition-all absolute grid grid-cols-1 auto-rows-min justify-center items-center top-10 bottom-10 h-auto right-10 bg-slate-50 rounded-3xl border-slate-300 border-4 ;
+  @apply box-content grid grid-cols-1 auto-rows-min justify-center items-center bg-slate-50 rounded-3xl overflow-y-hidden;
+  grid-template-rows: min-content 1fr;
+  transition: all 300ms ease-in-out;
+  box-shadow: inset 0 0 0 4px rgb(203 213 225)
+}
+
+.min-h-110 {
+  min-height: 110px;
+}
+
+.min-h-0 {
+  min-height: 0;
 }
