@@ -31,6 +31,10 @@ const useTileGenerator = ({ containerRef }: UseTileGeneratorProps) => {
   const [matrix, setMatrix] = useState<null | Point[][]>(null)
 
   const onTileClick: (x: number, y: number) => void = useCallback((x, y) => {
+    if (horisontalTilesCount && verticalTilesCount)
+      matrixBuffer.current = initiateMatrix(
+        { width: horisontalTilesCount, height: verticalTilesCount }
+      )
     const row = matrixBuffer.current[y]
     if (row !== undefined) {
       row[x] = 0
@@ -55,21 +59,7 @@ const useTileGenerator = ({ containerRef }: UseTileGeneratorProps) => {
         corners.push(bottomLeftPoint)
         corners.push(bottomRightPoint)
       }
-      if (corners.every(corner => typeof corner === "number")) {
-        //set longestDelay
-        longestDelay.current = corners.reduce((prev, next) => {
-          if (prev && next)
-            return prev > next ? prev : next
-        }, corners[0])
-        setTimeout(() => {
-          matrixBuffer.current = initiateMatrix(
-            { width: horisontalTilesCount, height: verticalTilesCount }
-          )
-          setMatrix([...matrixBuffer.current])
-        }, longestDelay.current)
-
-        break
-      }
+      if (corners.every(corner => typeof corner === "number")) break
 
       generateCircle({
         matrix: matrixBuffer.current,

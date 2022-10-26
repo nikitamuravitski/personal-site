@@ -9,35 +9,23 @@ const Matrix = React.memo(() => {
     ref={matrixRef}
     className={styles["container"]}
   >
-    {matrix && matrix.map((row, index) => <Row
-      key={index}
-      y={index}
-      row={row}
-      onTileClick={onTileClick}
-    />
-    )}
+    {matrix && matrix.map((row, y) => {
+      return <React.Fragment key={y}>
+        <span key='line' className='h-0 w-full -my-10' />
+        {row.map((delay, x) => {
+          return <Tile
+            key={y.toString() + x.toString()}
+            y={y}
+            x={x}
+            delay={delay}
+            onTileClick={onTileClick}
+          />
+        })}
+      </React.Fragment>
+    })
+    }
   </div >
 })
-
-type RowProps = {
-  y: number,
-  row: Point[],
-  onTileClick: (x: number, y: number) => void,
-}
-
-const Row = ({ y, row, onTileClick }: RowProps) => {
-  return <div
-    className={styles["row"]}
-  >
-    {row.map((delay, index) => <Tile
-      key={index}
-      y={y}
-      x={index}
-      delay={delay}
-      onTileClick={onTileClick}
-    />)}
-  </div>
-}
 
 type TileProps = {
   x: number,
@@ -47,9 +35,29 @@ type TileProps = {
 }
 
 const Tile = ({ x, y, delay, onTileClick }: TileProps) => {
+  const ref = useRef<HTMLDivElement>(null)
+
+  if (typeof delay === 'number') {
+    if (ref.current) {
+      ref.current.style.opacity = '0'
+      ref.current.style.transitionDelay = `${delay}ms`
+    }
+    setTimeout(() => {
+      if (ref.current) {
+        ref.current.style.opacity = '1'
+      }
+    }, delay + 150)
+    setTimeout(() => {
+      if (ref.current) {
+        ref.current.style.transitionDelay = '0ms'
+      }
+    }, delay + 200)
+  }
+
+
   return <div
+    ref={ref}
     className={styles["tile"]}
-    style={{ opacity: delay === null ? 1 : 0, transitionDelay: `${delay}ms` }}
     onClick={() => onTileClick(x, y)}
   />
 }
