@@ -28,10 +28,10 @@ const Job = ({ data }: JobProps) => {
           }
         </div>
       </div>
-      <div className='flex flex-wrap gap-2 my-5 overflow-x-scroll'>
+      <div className='flex flex-wrap gap-2 my-5'>
         {technologies.map(tech => <span key={tech} className='rounded-full px-3 py-1 bg-slate-200'>{tech}</span>)}
       </div>
-      <h4 className='text-xl'>What I worked on: </h4>
+      <h4 className='text-xl'>What I was building: </h4>
       <ul className='text-lg text-slate-700 pl-4'>
         {bullets.map(bullet => <li className={styles['bullet']} key={bullet}>{bullet}</li>)}
       </ul>

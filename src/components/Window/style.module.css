@@ -1,5 +1,15 @@
 .container {
-  @apply transition-all duration-500 box-content grid grid-cols-1 justify-center items-center bg-slate-50 rounded-3xl overflow-y-hidden;
-  grid-template-rows: min-content 1fr;
-  box-shadow: 0 0 0 4px rgb(203 213 225)
+  @apply transition-all duration-500 bg-slate-50 rounded-3xl overflow-y-hidden;
+  /* box-shadow: 0 0 0 4px rgb(203 213 225); */
+}
+.min-h-10 {
+  min-height: 8rem;
+}
+
+.min-h-0 {
+  min-height: 0;
+}
+
+.max-h-30vh {
+  max-height: 30vh;
 }

@@ -1,11 +1,12 @@
 .wrapper {
-  position: relative
+  position: relative;
+  margin-bottom: 1rem;
 }
 
 .wrapper::before {
   @apply bg-slate-200;
   content: '';
-  width: 12px;
+  width: .5rem;
   position: absolute;
   left: -30px;
   top: 0;

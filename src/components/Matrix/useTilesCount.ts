@@ -1,7 +1,7 @@
 import { RefObject, useEffect, useState, useCallback, useRef } from "react"
 
 // don`t forget to update config if screens change
-enum possibleScreens {
+export enum possibleScreens {
   null = 0,
   sm = 'sm',
   md = 'md',
@@ -43,7 +43,6 @@ type UseTilesCountType = {
 }
 
 const getTilesCount: (currentScreen: possibleScreens) => [possibleScreens, number] = (currentScreen) => {
-  console.log(currentScreen)
   return tilesCount.find(tuple => tuple[0] === currentScreen) || [possibleScreens.null, 0]
 }
 
@@ -51,12 +50,14 @@ const useTilesCount = ({ containerRef }: UseTilesCountType) => {
 
   const [verticalTilesCount, setVerticalTilesCount] = useState(0)
   const [horisontalTilesCount, setHorisontalTilesCount] = useState(0)
+  const [screenSize, setScreenSize] = useState(possibleScreens.null)
 
   const cb = () => {
     if (containerRef.current) {
       const width = containerRef.current.getBoundingClientRect().width
       const height = containerRef.current.getBoundingClientRect().height
       const { currentScreen } = getCurrentScreen(width)
+      setScreenSize(currentScreen)
       const [_, count] = getTilesCount(currentScreen)
       const tileWidth = width / count;
       setHorisontalTilesCount(count)
@@ -70,7 +71,7 @@ const useTilesCount = ({ containerRef }: UseTilesCountType) => {
     return () => { window.removeEventListener('resize', cb) }
   }, [])
 
-  return { verticalTilesCount, horisontalTilesCount }
+  return { verticalTilesCount, horisontalTilesCount, screenSize }
 }
 
 export default useTilesCount

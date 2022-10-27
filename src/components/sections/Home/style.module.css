@@ -1,8 +1,7 @@
 .content {
-  @apply z-10 duration-500 grid top-10 bottom-10 h-auto left-10 bg-slate-50 rounded-3xl border-slate-300 border-4 p-10;
-  grid-template-rows: min-content 1fr 1fr;
+  @apply w-full max-w-screen-xl z-10 duration-500 grid h-auto bg-slate-50 rounded-3xl border-slate-300 border-4 lg:p-10 md:p-4;
 }
 
 .nav-item {
-  @apply text-lg px-10 py-2 bg-slate-200 rounded-xl flex justify-center hover:bg-slate-500 hover:text-slate-50 duration-300 transition-all
+  @apply w-full text-base items-center lg:text-lg px-2 lg:px-6 xl:px-10 py-2 bg-zinc-200 rounded-lg flex justify-center hover:bg-slate-500 hover:text-slate-50 duration-300 transition-colors
 }

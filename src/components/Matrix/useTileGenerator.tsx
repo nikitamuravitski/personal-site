@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useState, useRef, useCallback } from "react"
 import generateCircle from './generateCircle'
-import useTilesCount from "./useTilesCount"
+import useTilesCount, { possibleScreens } from "./useTilesCount"
 
 
 const maxRadius = 70
@@ -25,12 +25,12 @@ type UseTileGeneratorProps = {
 }
 
 const useTileGenerator = ({ containerRef }: UseTileGeneratorProps) => {
-  const { horisontalTilesCount, verticalTilesCount } = useTilesCount({ containerRef })
+  const { horisontalTilesCount, verticalTilesCount, screenSize } = useTilesCount({ containerRef })
   const matrixBuffer = useRef<Point[][]>([[]])
-  const longestDelay = useRef<number>(0)
   const [matrix, setMatrix] = useState<null | Point[][]>(null)
 
   const onTileClick: (x: number, y: number) => void = useCallback((x, y) => {
+    if(screenSize === possibleScreens.sm || screenSize === possibleScreens.null ) return
     if (horisontalTilesCount && verticalTilesCount)
       matrixBuffer.current = initiateMatrix(
         { width: horisontalTilesCount, height: verticalTilesCount }
