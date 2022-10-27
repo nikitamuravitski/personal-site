@@ -16,6 +16,6 @@
     "incremental": true,
     "noUncheckedIndexedAccess": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs", "src/components/Matrix/useTilesCount.ts", "src/components/Matrix/useTilesCount.ts", "next.config.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs", "src/components/Matrix/useTilesCount.ts", "src/components/Matrix/useTilesCount.ts", "next.config.mjs"],
   "exclude": ["node_modules"]
 }
