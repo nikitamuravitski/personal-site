@@ -18,7 +18,7 @@ const content = {
       <p className='text-slate-600 mt-3'>
         My developer journey started in 2012. Out of curiosity I started to dig into how the web works.
         I started building simple pages for myself, my friends, and my family just for fun.
-        Then my zone of interest switched to engineering, so I decided to keep what I'd learned for a better time.
+        Then my zone of interest switched to engineering, so I decided to keep what I&apos;d learned for a better time.
       </p>
       <p className='text-slate-600 mt-3'>
         When the pandemic hit, it was the perfect opportunity to revisit what was going on in the web world, and my eye landed on React.
@@ -154,7 +154,7 @@ const HomeMainSection = () => {
         className=" transition-all text-zinc-800 font-bold m-3"
         style={{ fontSize: '6vmin' }}
       >
-        I'm Nikita,
+        I&apos;m Nikita,
         <br />
         <span className='text-neutral-500'>a front end </span>
         web developer

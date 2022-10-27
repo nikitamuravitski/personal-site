@@ -27,6 +27,8 @@ const Matrix = React.memo(() => {
   </div >
 })
 
+Matrix.displayName = 'Matrix'
+
 type TileProps = {
   x: number,
   y: number,
