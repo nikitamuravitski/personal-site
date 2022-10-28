@@ -11,7 +11,8 @@ export enum tabs {
 }
 
 const content = {
-  [tabs.about]: <><h2 className='text-zinc-800  text-2xl font-bold'>Hi there!</h2>
+  [tabs.about]: <>
+  <h2 className='text-zinc-800  text-2xl font-bold'>Hi there!</h2>
     <div className='text-lg leading-8'>
       <p className='text-slate-600 mt-3'>  I was born and raised in Zhytomyr, Ukraine.</p>
       <p className='text-slate-600 mt-3'>My primary expertise lies in React-based apps, though I dabble with the full stack.</p>
@@ -80,7 +81,7 @@ const content = {
         <path
           fill="none"
           stroke="#010101"
-          stroke-miterlimit="10"
+          strokeMiterlimit="10"
           d="M45.051,24c0,3.826-1.069,7.415-2.857,10.504 c-1.844,3.187-4.305,6.189-7.492,8.033c-3.089,1.787-6.877,2.871-10.702,2.871c-3.826,0-7.567-1.165-10.656-2.952 c-3.187-1.844-5.847-4.677-7.69-7.864C3.867,31.503,3.378,27.826,3.378,24c0-3.826,0.68-7.393,2.467-10.482 c1.844-3.187,4.366-6.038,7.553-7.882C16.487,3.849,20.174,3.188,24,3.188c3.826,0,7.371,0.906,10.46,2.694 c3.187,1.844,5.545,4.627,7.389,7.814C43.636,16.785,45.051,20.174,45.051,24z"
         />
         <path
@@ -94,8 +95,8 @@ const content = {
         <path
           fill="none"
           stroke="#010101"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
           d="M20.721,28.01 c1.109,1.117,2.262,2.191,3.455,3.219"
         />
         <polygon
@@ -105,15 +106,15 @@ const content = {
         <path
           fill="none"
           stroke="#010101"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
           d="M17.689,26.814 c0.492,1.906,1.089,3.785,1.785,5.626c0.151,0.399,0.366,0.85,0.782,0.946c0.367,0.084,0.725-0.152,1.02-0.386 c0.846-0.672,1.616-1.439,2.292-2.282c1.123,0.936,2.304,1.808,3.427,2.744c0.437,0.364,0.884,0.734,1.414,0.94 c0.53,0.205,1.168,0.22,1.635-0.104c0.321-0.222,0.525-0.574,0.692-0.927c0.364-0.765,0.633-1.572,0.833-2.395 c0.8-3.306,0.851-6.256,2.324-9.936c0.473-1.182,0.572-2.491,0.653-3.76c0.048-0.748-0.541-1.378-1.289-1.408 c-0.89-0.036-1.761,0.193-2.619,0.451c-6.127,1.842-11.582,4.246-17.015,6.668c-0.505,0.225-1.044,0.413-1.436,0.803 c-0.221,0.22-0.397,0.518-0.365,0.828c0.058,0.568,0.716,0.837,1.268,0.98C14.627,26,16.133,26.517,17.689,26.814z"
         />
         <path
           fill="none"
           stroke="#010101"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
           d="M17.689,26.814 c3.357-2.222,6.437-4.187,9.794-6.409c0.695-0.46,2.562-1.753,2.87-1.262c0.411,0.654-6.383,5.935-9.624,8.879 c-0.164,1.727-0.287,3.459-0.37,5.192"
         />
       </svg>
@@ -125,14 +126,16 @@ const content = {
 
 const HomeMainSection = () => {
   const [tabStack, setTabStack] = useState<tabs[]>([])
+
   const removeFromStack = useCallback((name: tabs) => {
-    console.log(name, tabStack)
-    const index = tabStack.indexOf(name);
+    const stack = [...tabStack]
+    const index = stack.indexOf(name);
     if (index > -1) {
-      tabStack.splice(index, 1)
-      setTabStack([...tabStack])
+      stack.splice(index, 1)
+      setTabStack(stack)
     }
   }, [tabStack])
+  
   return <div className="w-full lg:h-screen min-h-screen relative p-3 lg:p-10 flex flex-col lg:flex-row gap-2 lg:gap-10 bg-slate-50"
   >
     <div
@@ -141,13 +144,12 @@ const HomeMainSection = () => {
       
       ${tabStack.length ? '' : 'flex-1 lg:flex-none'}
       `}
-      style={{gridTemplateRows: 'auto 1fr auto'}}
+      style={{ gridTemplateRows: 'auto 1fr auto' }}
     >
       <div
         className={' transition-all duration-500 '}
-        style={{ 
+        style={{
           marginTop: tabStack.length ? '0' : '25vh',
-          // maxHeight: tabStack.length ? '0' : '15vmax',
         }}
       ></div>
       <h1
@@ -165,12 +167,12 @@ const HomeMainSection = () => {
           {(Object.values(tabs)).map(item => {
             return <li key={item}><button
               className={styles['nav-item']}
+              disabled={tabStack.includes(item)}
               onClick={e => {
                 if (tabStack.includes(item)) return
-                tabStack.push(item)
+                tabStack.unshift(item)
                 setTabStack([...tabStack])
               }}
-              value={tabs.about}
             >{item}
             </button></li>
           })}
@@ -178,9 +180,9 @@ const HomeMainSection = () => {
       </nav>
     </div>
 
-    <div className={` ${tabStack.length ? ' xl:w-4/5  lg:w-4/5 ' : ' w-0 '} justify-start h-fit max-h-full flex lg:overflow-y-auto flex-col duration-700 transition-all z-10`}>
+    <div className={` ${tabStack.length ? ' xl:w-4/5  lg:w-4/5 ' : ' w-0 '} justify-start h-fit max-h-full flex overflow-y-auto flex-col duration-700 transition-all z-10`}>
       <div className='h-full'>
-        {tabStack.map(item => <Window name={item} removeFromStack={removeFromStack} key={item}>
+        {tabStack.map(item => <Window name={item} removeFromStack={() => removeFromStack(item)} key={item}>
           {content[item]}
         </Window>)}
       </div>
@@ -189,7 +191,6 @@ const HomeMainSection = () => {
       <Matrix />
     </div>
   </div>
-
 }
 
 export default HomeMainSection

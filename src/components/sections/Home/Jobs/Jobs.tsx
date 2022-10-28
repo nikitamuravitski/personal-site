@@ -37,10 +37,12 @@ const jobList: Job[] = [
   }
 ]
 
-const Jobs = () => {
+const Jobs = React.memo(() => {
   return (
     <div className='flex flex-col gap-5'>{jobList.map(job => <Job key={job.name} data={job} />)}</div>
   )
-}
+})
+
+Jobs.displayName = 'Jobs'
 
 export default Jobs

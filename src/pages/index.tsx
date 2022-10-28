@@ -19,11 +19,4 @@ const Home: NextPage = (props) => {
   )
 }
 
-export async function getServerSideProps(context) {
-  console.log(context.req)
-  return {
-    props: {}, // will be passed to the page component as props
-  }
-}
-
 export default Home

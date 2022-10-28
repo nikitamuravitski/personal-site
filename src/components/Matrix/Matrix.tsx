@@ -47,10 +47,6 @@ const Tile = ({ x, y, delay, onTileClick }: TileProps) => {
     setTimeout(() => {
       if (ref.current) {
         ref.current.style.opacity = '1'
-      }
-    }, delay + 150)
-    setTimeout(() => {
-      if (ref.current) {
         ref.current.style.transitionDelay = '0ms'
       }
     }, delay + 200)

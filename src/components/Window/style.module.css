@@ -1,6 +1,5 @@
 .container {
-  @apply transition-all duration-500 bg-slate-50 rounded-3xl overflow-y-hidden;
-  /* box-shadow: 0 0 0 4px rgb(203 213 225); */
+  @apply transition-all duration-300 bg-slate-50 rounded-3xl overflow-y-hidden;
 }
 .min-h-10 {
   min-height: 8rem;
