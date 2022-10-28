@@ -1,6 +1,6 @@
 .container {
   @apply transition-all duration-300 bg-slate-50 rounded-3xl overflow-y-hidden;
-  box-shadow: 0 0 0 4px rgb(203 213 225);
+  box-shadow: inset 0 0 0 4px rgb(203 213 225);
 }
 
 .min-h-10 {
