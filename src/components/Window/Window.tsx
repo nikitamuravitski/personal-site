@@ -42,7 +42,7 @@ const Window = ({ name, removeFromStack, children }: WindowProps) => {
       setIsFullSize={setIsFullSize}
       setIsMinimised={setIsMinimised}
     />
-    <div className="px-12 py-6 flex flex-col max-h-full">
+    <div className="px-12 py-6 flex flex-col max-h-full overflow-y-auto">
       {children}
     </div>
   </div>
