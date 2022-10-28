@@ -12,7 +12,7 @@ export enum tabs {
 
 const content = {
   [tabs.about]: <>
-  <h2 className='text-zinc-800  text-2xl font-bold'>Hi there!</h2>
+    <h2 className='text-zinc-800  text-2xl font-bold'>Hi there!</h2>
     <div className='text-lg leading-8'>
       <p className='text-slate-600 mt-3'>  I was born and raised in Zhytomyr, Ukraine.</p>
       <p className='text-slate-600 mt-3'>My primary expertise lies in React-based apps, though I dabble with the full stack.</p>
@@ -28,8 +28,8 @@ const content = {
     </div>
   </>,
   [tabs.jobs]: <Jobs />,
-  [tabs.contact]: <div className='flex flex-col gap-3'>
-    <div className='flex items-center gap-3 text-lg'>
+  [tabs.contact]: <div className='flex flex-col gap-3 text-blue-800 visited:text-purple-600'>
+    <a id='email-link' className=' flex items-center gap-3 text-lg' href='mailto:nikitamuravitski@gmail.com'>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 48 48"
@@ -64,8 +64,8 @@ const content = {
         />
       </svg>
       nikitamuravitski@gmail.com
-    </div>
-    <div className='flex items-center gap-3 text-lg'>
+    </a>
+    <a href='tg://resolve?domain=nikitamuravitski' className='flex items-center gap-3 text-lg'>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 48 48"
@@ -119,8 +119,8 @@ const content = {
         />
       </svg>
       @nikitamuravitski
-    </div>
-  </div>,
+    </a>
+  </div >,
 }
 
 
@@ -135,7 +135,7 @@ const HomeMainSection = () => {
       setTabStack(stack)
     }
   }, [tabStack])
-  
+
   return <div className="w-full lg:h-screen min-h-screen relative p-3 lg:p-10 flex flex-col lg:flex-row gap-2 lg:gap-10 bg-slate-50"
   >
     <div

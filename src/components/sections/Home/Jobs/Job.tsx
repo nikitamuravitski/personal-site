@@ -19,7 +19,7 @@ const Job = ({ data }: JobProps) => {
           {link &&
             <p>
               <a
-                className="text-blue-600  underline underline-offset-1 visited:text-purple-600"
+                className="text-blue-800 visited:text-purple-600"
                 href={link.value}
               >
                 {link.slug}
