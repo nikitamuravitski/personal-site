@@ -25,16 +25,10 @@ const Window = ({ name, removeFromStack, children }: WindowProps) => {
   return <div
     className={
       `${styles['container']}
-      ${isOpen
-        ?
-        ' opacity-100 ' + (
-          (isFullSize ? 'z-30 fixed top-3 bottom-3 left-3 right-3 lg:bottom-10 lg:top-10 lg:right-10 lg:left-10 mb-3 ' : ' mb-3 ') + (isMinimised ? ' max-h-12 ' : ' max-h-screen ')
-        )
-        :
-        ' opacity-0 max-h-0' + (isFullSize ? ' fixed bottom-10 top-10 right-10 left-10 ' : ' ' + isMinimised ? ' max-h-0 ' : ' ')
-      }
-
-      `}
+      ${isOpen ? ' opacity-100 ' + ((isFullSize ? 'z-30 fixed top-3 bottom-3 left-3 right-3 lg:bottom-10 lg:top-10 lg:right-10 lg:left-10 mb-3 ' : ' mb-3 ') + (isMinimised ? ' max-h-12 ' : ' max-h-screen '))
+        : ' opacity-0 max-h-0' + (isFullSize ? ' fixed bottom-10 top-10 right-10 left-10 ' : ' ' + isMinimised ? ' max-h-0 ' : ' ')
+      }`
+    }
   >
     <Header
       closeHandler={closeHandler}
