@@ -139,11 +139,7 @@ const HomeMainSection = () => {
   return <div className="w-full lg:h-screen min-h-screen relative p-3 lg:p-10 flex flex-col lg:flex-row gap-2 lg:gap-10 bg-slate-50"
   >
     <div
-      className={`
-      ${styles["content"]}
-      
-      ${tabStack.length ? '' : 'flex-1 lg:flex-none'}
-      `}
+      className={`${styles["content"]} ${tabStack.length ? '' : ' flex-1 lg:flex-none'}`}
       style={{ gridTemplateRows: 'auto 1fr auto' }}
     >
       <div
@@ -180,7 +176,7 @@ const HomeMainSection = () => {
       </nav>
     </div>
 
-    <div className={` ${tabStack.length ? ' xl:w-4/5  lg:w-4/5 ' : ' w-0 '} justify-start h-fit max-h-full flex overflow-y-auto flex-col duration-700 transition-all z-10`}>
+    <div className={`${tabStack.length ? ' xl:w-4/5  lg:w-4/5 ' : ' w-0 '} justify-start h-fit max-h-full flex overflow-y-auto flex-col duration-700 transition-all z-10`}>
       <div className='h-full'>
         {tabStack.map(item => <Window name={item} removeFromStack={() => removeFromStack(item)} key={item}>
           {content[item]}
