@@ -22,7 +22,7 @@ function generateCircle(
 
   // by lowering smth in <i += smth> you can paint larger matrixes, but that`s not needed for small matrixes
 
-  for (i = 0; i < 360; i += 0.5) {
+  for (i = 0; i < 360; i += 1) {
     angle = i;
     x1 = Math.round(iteration * Math.cos(angle * Math.PI / 180));
     y1 = Math.round(iteration * Math.sin(angle * Math.PI / 180));

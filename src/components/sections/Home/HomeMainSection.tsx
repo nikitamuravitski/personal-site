@@ -149,8 +149,8 @@ const HomeMainSection = () => {
         }}
       ></div>
       <h1
-        className=" transition-all text-zinc-800 font-bold m-3"
-        style={{ fontSize: '6vmin' }}
+        className=" transition-all text-zinc-800 font-bold mx-3 my-1"
+        style={{ fontSize: '5.5vmin' }}
       >
         I&apos;m Nikita,
         <br />
@@ -159,7 +159,7 @@ const HomeMainSection = () => {
         <span className='text-neutral-500'> based in Ukraine</span>
       </h1>
       <nav className='justify-self-center place-self-center'>
-        <ul className={(tabStack.length ? 'mb-0 lg:mb-48 ' : ' mb-32 ') + ' duration-700 transition-all flex flex-row justify-center gap-5 p-1 xl:flex-row '}>
+        <ul className={(tabStack.length ? 'mb-2 lg:mb-60 ' : ' mb-60 ') + ' duration-700 transition-all flex flex-row justify-center gap-5 p-1 xl:flex-row '}>
           {(Object.values(tabs)).map(item => {
             return <li key={item}><button
               className={styles['nav-item']}
@@ -176,8 +176,8 @@ const HomeMainSection = () => {
       </nav>
     </div>
 
-    <div className={`${tabStack.length ? ' xl:w-4/5  lg:w-4/5 ' : ' w-0 '} justify-start h-fit max-h-full flex overflow-y-auto flex-col duration-700 transition-all z-10`}>
-      <div className='h-full'>
+    <div className={`${tabStack.length ? ' xl:w-4/5  lg:w-4/5 ' : ' w-0 '} justify-start max-h-full h-fit flex overflow-y-auto flex-col duration-700 transition-all z-10`}>
+      <div>
         {tabStack.map(item => <Window name={item} removeFromStack={() => removeFromStack(item)} key={item}>
           {content[item]}
         </Window>)}
