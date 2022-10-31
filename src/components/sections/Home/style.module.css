@@ -7,6 +7,6 @@
   hover:bg-slate-500 hover:text-slate-50 
   shadow-md shadow-slate-300 hover:scale-105 hover:shadow-2xl 
   disabled:bg-slate-400 disabled:text-slate-100 disabled:hover:bg-slate-400 disabled:hover:text-slate-100  disabled:hover:shadow-lg
-  disabled:cursor-not-allowed disabled:hover:scale-95
+  disabled:hover:scale-95
   duration-300 transition-all
 }

@@ -8,3 +8,11 @@
 .tile:hover {
   @apply bg-slate-400
 }
+
+.show {
+  @apply transition-opacity duration-300 opacity-100;
+}
+
+.hide {
+  @apply transition-opacity duration-300 opacity-0
+}

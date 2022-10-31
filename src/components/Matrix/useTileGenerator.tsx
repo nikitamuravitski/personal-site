@@ -65,7 +65,7 @@ const useTileGenerator = ({ containerRef }: UseTileGeneratorProps) => {
         matrix: matrixBuffer.current,
         x,
         y,
-        delay,
+        delay: delay,
         iteration: i,
       })
     }

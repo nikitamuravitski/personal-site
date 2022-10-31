@@ -1,8 +1,9 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import useTileGenerator, { Point } from './useTileGenerator'
 import styles from './style.module.css'
 
 const Matrix = React.memo(() => {
+
   const matrixRef = useRef<HTMLDivElement>(null)
   const { matrix, onTileClick } = useTileGenerator({ containerRef: matrixRef })
   return <div
@@ -41,17 +42,28 @@ const Tile = ({ x, y, delay, onTileClick }: TileProps) => {
 
   if (typeof delay === 'number') {
     if (ref.current) {
-      ref.current.style.opacity = '0'
-      ref.current.style.transitionDelay = `${delay}ms`
+      let requestID: number
+      const startAnimation = () => {
+        let start = Date.now();
+        function playAnimation() {
+          const interval = (Date.now() - start) - (delay || 0) ;
+          if (ref.current) {
+            ref.current.classList.add(`${styles['show']}`);
+            if (interval <= 200 && interval > 0) {
+              ref.current.classList.replace(`${styles['show']}`, `${styles['hide']}`)
+            }
+            if (interval >= 200) {
+              ref.current.classList.replace(`${styles['hide']}`, `${styles['show']}`)
+              return cancelAnimationFrame(requestID)
+            }
+          }
+          requestID = requestAnimationFrame(playAnimation);
+        }
+        requestAnimationFrame(playAnimation);
+      };
+      startAnimation()
     }
-    setTimeout(() => {
-      if (ref.current) {
-        ref.current.style.opacity = '1'
-        ref.current.style.transitionDelay = '0ms'
-      }
-    }, delay + 200)
   }
-
 
   return <div
     ref={ref}

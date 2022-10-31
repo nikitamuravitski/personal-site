@@ -32,7 +32,7 @@ function generateCircle(
     ) {
       const row = matrix[(y + y1) * -1]
       if (row !== undefined) {
-        row[x + x1] = iteration * delay
+        row[x + x1] = iteration * delay 
       }
     }
   }
