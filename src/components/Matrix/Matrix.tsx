@@ -45,6 +45,7 @@ const Tile = ({ x, y, delay, onTileClick }: TileProps) => {
       let requestID: number
       const startAnimation = () => {
         const start = Date.now();
+        
         function playAnimation() {
           const interval = (Date.now() - start) - (delay || 0) ;
           if (ref.current) {
