@@ -30,7 +30,7 @@ const useTileGenerator = ({ containerRef }: UseTileGeneratorProps) => {
   const [matrix, setMatrix] = useState<null | Point[][]>(null)
 
   const onTileClick: (x: number, y: number) => void = useCallback((x, y) => {
-    if(screenSize === possibleScreens.sm || screenSize === possibleScreens.null ) return
+    // if(screenSize === possibleScreens.sm || screenSize === possibleScreens.null ) return
     if (horisontalTilesCount && verticalTilesCount)
       matrixBuffer.current = initiateMatrix(
         { width: horisontalTilesCount, height: verticalTilesCount }
