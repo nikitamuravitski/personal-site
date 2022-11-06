@@ -172,9 +172,18 @@ const HomeMainSection = () => {
             >{item}
             </button></li>
           })}
+          <li>
+            <a
+              className={styles['nav-item']}
+              href='https://drive.google.com/file/d/1o6GYV35jubqRx7ZANqIcl_WWmX3vTxwa/view?usp=sharing'
+            >
+              Resume
+            </a>
+          </li>
         </ul>
       </nav>
     </div>
+
 
     <div className={`${tabStack.length ? ' xl:w-4/5  lg:w-4/5 ' : ' w-0 '} justify-start max-h-full h-fit flex overflow-y-auto flex-col duration-700 transition-all z-10`}>
       <div>

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, SetStateAction, Dispatch, useCallback } from 'react'
+import React, { useRef, useState, useEffect, SetStateAction, Dispatch } from 'react'
 import { tabs } from '../sections/Home/HomeMainSection'
 import styles from './style.module.css'
 
